@@ -1,4 +1,4 @@
-package fds.dataprovider;
+package main.java.fds.dataprovider;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -6,8 +6,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
-import fds.core.enums.DriverType;
-import fds.core.enums.EnvironmentType;
+import main.java.fds.core.enums.DriverType;
+import main.java.fds.core.enums.EnvironmentType;
 
 public class ConfigFileReader {
 	private Properties properties;

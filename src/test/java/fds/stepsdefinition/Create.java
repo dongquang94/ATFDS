@@ -1,10 +1,10 @@
-package fds.stepsdefinition;
+package test.java.fds.stepsdefinition;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
-import fds.cucumber.TestContext;
-import fds.pages.AdminPage;
-import fds.pages.HomePage;
+import main.java.fds.cucumber.TestContext;
+import main.java.fds.pages.AdminPage;
+import main.java.fds.pages.HomePage;
 
 public class Create {
 

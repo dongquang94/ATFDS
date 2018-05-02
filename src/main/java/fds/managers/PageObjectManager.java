@@ -1,10 +1,10 @@
-package fds.managers;
+package main.java.fds.managers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import fds.pages.AdminPage;
-import fds.pages.HomePage;
+import main.java.fds.pages.AdminPage;
+import main.java.fds.pages.HomePage;
 
 public class PageObjectManager {
 	private WebDriver driver;

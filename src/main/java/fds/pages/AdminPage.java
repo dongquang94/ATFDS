@@ -1,4 +1,4 @@
-package fds.pages;
+package main.java.fds.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

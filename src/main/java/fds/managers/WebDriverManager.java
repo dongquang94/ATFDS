@@ -1,4 +1,4 @@
-package fds.managers;
+package main.java.fds.managers;
 
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
@@ -6,8 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
-import fds.core.enums.DriverType;
-import fds.core.enums.EnvironmentType;
+import main.java.fds.core.enums.DriverType;
+import main.java.fds.core.enums.EnvironmentType;
 
 public class WebDriverManager {
 

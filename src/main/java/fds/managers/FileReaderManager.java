@@ -1,6 +1,6 @@
-package fds.managers;
+package main.java.fds.managers;
 
-import fds.dataprovider.ConfigFileReader;
+import main.java.fds.dataprovider.ConfigFileReader;
 
 public class FileReaderManager {
 	private static FileReaderManager fileReaderManager = new FileReaderManager();

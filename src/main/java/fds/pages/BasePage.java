@@ -1,4 +1,4 @@
-package fds.pages;
+package main.java.fds.pages;
 
 import java.util.concurrent.TimeUnit;
 

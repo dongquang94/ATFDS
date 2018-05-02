@@ -1,4 +1,4 @@
-package fds.runner;
+package test.java.fds.runner;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;

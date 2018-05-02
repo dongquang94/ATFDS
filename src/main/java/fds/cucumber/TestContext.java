@@ -1,7 +1,7 @@
-package fds.cucumber;
+package main.java.fds.cucumber;
 
-import fds.managers.PageObjectManager;
-import fds.managers.WebDriverManager;
+import main.java.fds.managers.PageObjectManager;
+import main.java.fds.managers.WebDriverManager;
 
 public class TestContext {
 	private WebDriverManager webDriverManager;
