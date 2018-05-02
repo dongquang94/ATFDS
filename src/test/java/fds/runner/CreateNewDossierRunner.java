@@ -3,7 +3,7 @@ package test.java.fds.runner;
 import cucumber.api.CucumberOptions;
 
 @CucumberOptions(
-        features = "src/test/java/fds/resources/features/CreateNewDossier.feature",
+        features = "src/test/fds/resources/features/CreateNewDossier.feature",
         glue = {"test.java.fds.stepsdefinition"},
         plugin = {
                 "pretty",
