@@ -5,6 +5,8 @@ import cucumber.api.java.en.When;
 import main.java.fds.cucumber.TestContext;
 import main.java.fds.pages.AdminPage;
 import main.java.fds.pages.HomePage;
+import main.java.fds.managers.FileReaderManager;
+import main.java.fds.bean.User;
 
 public class Create {
 
@@ -23,9 +25,12 @@ public class Create {
 		homePage.goToHomePage(arg1);
     }
  
-    @When("^I fill in username \"([^\"]*)\" and password \"([^\"]*)\"$")
-    public void i_fill_in_username_and_password(String arg1, String arg2) throws Throwable {
-        homePage.goToLoginPanel(arg1, arg2);
+    @When("^I fill in username and password with \"([^\"]*)\"$")
+    public void i_fill_in_username_and_password(String id) throws Throwable {
+    	User user = FileReaderManager.getInstance().getJsonReader().getUserById(id);
+		String currUsername = user.getUsername();
+		String currPasword = user.getPassword();
+        homePage.goToLoginPanel(currUsername, currPasword);
     }
  
     @When("^I click on the \"([^\"]*)\" button$")

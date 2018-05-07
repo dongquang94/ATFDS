@@ -34,13 +34,17 @@ public class HomePage extends BasePage {
     //search
     String searchBox = "//*[@id='app']/div/div/div/div/div/div[1]/div[2]/div/div/div[1]/input";
     String dossierId = "";
+    
     String top = "//*[@id='app']/div/div/div/div/div/div[2]/div[1]/table/tbody/tr/td[3]/a";
     String response = "//*[@id='app']/div/div/div/div/div/div/div[2]/div[1]/div/ul/li[2]/a";
     String approve = "//*[@id='tab-dossier-detail-2']/div/div/div/ul/li[1]/a/button/div";
     String comment = "//*[@id='tab-dossier-detail-2']/div[2]/div/div[2]/div/div/div/div/div[1]/textarea";
+    String formOnline = "//*[@id='tab-dossier-detail-2']/div[2]/div/ul/li/div[1]/div[1]/small";
+    String save2 = "//*[@id='btn-save-formalpacaKQ1']/div";
     String confirm2 = "//*[@id='tab-dossier-detail-2']/div[2]/div/div[3]/button/div";
-    String fileUpload = "//*[@id='tab-dossier-detail-2']/div[2]/div/ul/li/div[1]/div[2]/button[1]/div";
-	//*********Constructor*********
+    //String fileUpload = "//*[@id='tab-dossier-detail-2']/div[2]/div/ul/li/div[1]/div[2]/button[1]/div";
+    
+    //*********Constructor*********
     public HomePage (WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
@@ -82,6 +86,7 @@ public class HomePage extends BasePage {
     	} else if(label.equalsIgnoreCase("Ghi lại")){
     		click(By.xpath(save));
     	} else if(label.equalsIgnoreCase("Nộp hồ sơ") || label.equalsIgnoreCase("Lưu")){
+    		Thread.sleep(2000);
     		click(By.xpath(submit));
     	} else if(label.equalsIgnoreCase("Tên công ty/tổ chức")){
     		click(By.xpath(info));
@@ -94,10 +99,29 @@ public class HomePage extends BasePage {
     		click(By.xpath(response));
     	} else if(label.equalsIgnoreCase("Hồ sơ hợp lệ")){
     		click(By.xpath(approve));
+    		boolean isSync = false;
+    		do{
+    			isSync = seachElement(By.xpath(confirm2));
+    			System.out.println("isSync: "+isSync);
+    			if(!isSync){
+    				refresh();
+    				Thread.sleep(2000);
+    				writeText(By.xpath(searchBox), dossierId);
+    				Thread.sleep(500);
+    				click(By.xpath(top));
+    				Thread.sleep(500);
+    				click(By.xpath(response));
+    				Thread.sleep(500);
+    				click(By.xpath(approve));
+    			}
+    		} while (!isSync);
+    	} else if(label.equalsIgnoreCase("Form trực tuyến")){
+    		click(By.xpath(formOnline));
+    	} else if(label.equalsIgnoreCase("Ghi lại 2")){
+    		click(By.xpath(save2));
     	} else if(label.equalsIgnoreCase("Xác nhận")){
     		click(By.xpath(confirm2));
     	}
-    	
     }
     
     public void fillData(String element, String value) throws Exception{
@@ -112,7 +136,7 @@ public class HomePage extends BasePage {
     			writeText(By.xpath(searchBox), dossierId);
     			Thread.sleep(500);
     			isNotFound = seachElement(By.xpath(top));
-    			System.out.println("isNotFound "+isNotFound);
+    			System.out.println("isNotFound: "+isNotFound);
     			if(!isNotFound){
     				refresh();
     				Thread.sleep(2000);
@@ -123,12 +147,13 @@ public class HomePage extends BasePage {
     
     public void fileUpload(String fileIndex) throws Exception{
     	Thread.sleep(500);
-    	String elemenLocation = "";
-    	if(fileIndex.equals("")){
-    		elemenLocation = fileUpload;
-    	} else {
-    		elemenLocation = "//*[@id='file"+fileIndex+"']";
-    	}
+    	String elemenLocation = "//*[@id='file"+fileIndex+"']";
+//    	if(fileIndex.equalsIgnoreCase("File")){
+//    		elemenLocation = fileUpload;
+//    		System.out.println(fileUpload);
+//    	} else {
+//    		elemenLocation = "//*[@id='file"+fileIndex+"']";
+//    	}
     	fileUpload(By.xpath(elemenLocation));
     }
     

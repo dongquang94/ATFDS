@@ -41,7 +41,7 @@ public class BasePage {
     //File Upload
     public void fileUpload(By elemenLocation){
     	WebElement element = driver.findElement(elemenLocation);
-    	element.sendKeys("C://Users//dvquang//Desktop//file_test.png");
+    	element.sendKeys("C:/Users/dvquang/Desktop/file_test.png");
     }
     
     public boolean seachElement(By elemenLocation){

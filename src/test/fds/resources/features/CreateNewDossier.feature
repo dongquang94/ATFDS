@@ -6,9 +6,9 @@ Feature: CreateNewDossier
 		Given I am on URL "http://103.21.148.29/"
     
   @CreateSuccess
-  Scenario: Title of your scenario
+  Scenario Outline: approve workflow
   	#login creater
-  	When I fill in username "nthnga@cmc.com.vn" and password "abc@123"
+  	When I fill in username and password with "<id>"
     And I click on the "Đăng nhập" button
     #create
     And I click on the "Quản lý hồ sơ" button
@@ -42,7 +42,7 @@ Feature: CreateNewDossier
 		And I click on the label "Tên công ty/tổ chức"
 		And I choose " Đăng xuất" in dropdown menu
 		#login manager
-		And I fill in username "user15@cmc.com.vn" and password "abc@123"
+		And I fill in username and password with "<id>"
     And I click on the "Đăng nhập" button
 		#search dossier
 		And I fill dossier id to search box
@@ -52,6 +52,18 @@ Feature: CreateNewDossier
 		And I click on the "Hồ sơ hợp lệ" button
 		#dossier synchronous
 		And I fill in "Comment" "đồng ý"
-		And I click file upload ""
+		And I click on the "Form trực tuyến" button
+		And I click on the "Ghi lại 2" button
 		And I click on the "Xác nhận" button
-		
+		#logout
+		And I click on the label "Tên công ty/tổ chức"
+		And I choose " Đăng xuất" in dropdown menu
+		#login manager
+		And I fill in username and password with "<id>"
+    And I click on the "Đăng nhập" button
+    
+		Examples:
+		|id		|
+		|1		|
+		|2		|
+		|3		|
