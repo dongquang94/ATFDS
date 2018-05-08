@@ -1,7 +1,5 @@
 package main.java.fds.pages;
 
-import java.io.IOException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -50,10 +48,6 @@ public class HomePage extends BasePage {
     }
     
     //*********Page Methods*********
-
-    public void goToHomePage (String homepageURL) throws IOException {
-    	driver.get(homepageURL);
-    }
 
     public void goToLoginPanel (String username, String password) throws Exception {   
         Thread.sleep(500);

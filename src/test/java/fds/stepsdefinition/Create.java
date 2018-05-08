@@ -1,10 +1,11 @@
 package test.java.fds.stepsdefinition;
 
-import cucumber.api.java.en.Given;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.When;
 import main.java.fds.cucumber.TestContext;
 import main.java.fds.pages.AdminPage;
 import main.java.fds.pages.HomePage;
+import main.java.utils.database.ConnectToDatabase;
 import main.java.fds.managers.FileReaderManager;
 import main.java.fds.bean.User;
 
@@ -14,16 +15,30 @@ public class Create {
 	HomePage homePage;
 	AdminPage adminPage;
 	
+	private String testDataSqlTag = "login";
+	
 	public Create(TestContext context) {
 		testContext = context;
 		homePage = testContext.getPageObjectManager().getHomePage();
 		adminPage = testContext.getPageObjectManager().getAdminPage();
 	}
 	
-	@Given("^I am on URL \"([^\"]*)\"$")
-    public void i_am_on_the_page_on_URL(String arg1) throws Throwable {	 
-		homePage.goToHomePage(arg1);
-    }
+	
+	/***************************************
+	 * Prepare Test Data for feature
+	 ***************************************/
+	@Before
+	public void prepareData() throws Throwable {
+		String sqlQuery = FileReaderManager.getInstance().getSQLReader().getQueryString(testDataSqlTag);
+		ConnectToDatabase connection = new ConnectToDatabase();
+		connection.SetUpConnection();
+		connection.PrepareTestData(sqlQuery);
+		connection.CloseTheConnection();
+	}
+	
+	/***************************************
+	 * Feature actions
+	 ***************************************/
  
     @When("^I fill in username and password with \"([^\"]*)\"$")
     public void i_fill_in_username_and_password(String id) throws Throwable {

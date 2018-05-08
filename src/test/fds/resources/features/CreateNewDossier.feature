@@ -1,11 +1,8 @@
 @Create
 Feature: CreateNewDossier
   Create New Dossier
-
-	Background: User navigates to page
-		Given I am on URL "http://103.21.148.29/"
     
-  @CreateSuccess
+  @MainFlow
   Scenario Outline: approve workflow
   	#login creater
   	When I fill in username and password with "<id>"
@@ -17,7 +14,7 @@ Feature: CreateNewDossier
     #Cấp giấy phép đưa thí sinh đi tham dự cuộc thi người đẹp, người mẫu quốc tế
     And I click on the "Cấp giấy phép đưa thí sinh đi tham dự cuộc thi người đẹp, người mẫu quốc tế" button
 		#fill data to form
-		And I fill in "Full Name" "Mrs Bui Hong Tuan"
+		And I fill in "Full Name" "Mrs Quang Dong"
 		And I click on the "Ghi lại" button
 		#Then I should see success message "Yêu cầu được thực hiện thành công!"
 		#file upload
