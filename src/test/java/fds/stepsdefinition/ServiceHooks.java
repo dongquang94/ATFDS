@@ -1,7 +1,11 @@
 package test.java.fds.stepsdefinition;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.IOUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -33,11 +37,12 @@ public class ServiceHooks {
 	 * Take screenshot if scenario failed
 	 ****************************************/
 	@After
-	public void takescreenshot(Scenario scenario) {
+	public void takescreenshot(Scenario  scenario) {
 		if (scenario.isFailed()) {
 			try {
-				final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-				scenario.embed(screenshot, "image/png");
+				File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		        InputStream screenshotStream = new FileInputStream(screenshot);
+		        scenario.embed(IOUtils.toByteArray(screenshotStream), "image/png");  
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

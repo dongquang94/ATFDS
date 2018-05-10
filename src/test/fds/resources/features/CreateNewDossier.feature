@@ -1,4 +1,4 @@
-@Create
+@CreateNewDossier
 Feature: CreateNewDossier
   Create New Dossier
     
