@@ -39,7 +39,7 @@ Feature: CreateNewDossier
 		And I click on the label "Tên công ty/tổ chức"
 		And I choose " Đăng xuất" in dropdown menu
 		#login manager
-		And I fill in username and password with "<id>"
+		And I fill username and password with user "user15@cmc.com.vn" and password "abc@123"
     And I click on the "Đăng nhập" button
 		#search dossier
 		And I fill dossier id to search box
@@ -56,7 +56,7 @@ Feature: CreateNewDossier
 		And I click on the label "Tên công ty/tổ chức"
 		And I choose " Đăng xuất" in dropdown menu
 		#login manager
-		And I fill in username and password with "<id>"
+		And I fill username and password with user "user13@cmc.com.vn" and password "abc@123"
     And I click on the "Đăng nhập" button
     
 		Examples:

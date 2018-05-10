@@ -92,4 +92,9 @@ public class Create {
     public void i_choose_top() throws Throwable{
     	homePage.clickOtherButton("top");
     }
+    
+    @When("^I fill username and password with user \"([^\"]*)\" and password \"([^\"]*)\"$")
+    public void i_fill_in_username_and_password_with_specific_user_pass(String arg1, String arg2) throws Throwable {
+        homePage.goToLoginPanel(arg1, arg2);
+    }
 }

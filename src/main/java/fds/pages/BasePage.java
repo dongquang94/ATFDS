@@ -41,8 +41,8 @@ public class BasePage {
     //File Upload
     public void fileUpload(By elemenLocation){
     	WebElement element = driver.findElement(elemenLocation);
-    	//element.sendKeys("C:/Users/tuan/Desktop/beat_shot.png");
-    	element.sendKeys("C:/Users/dvquang/Desktop/file_test.png");
+    	element.sendKeys("C:/Users/tuan/Desktop/beat_shot.png");
+    	//element.sendKeys("C:/Users/dvquang/Desktop/file_test.png");
     	
     	//NOTE: Quang de duong dan nay ben trong 1 file config nao day de upload hoac sau nay minh push tu db len.
     	// tranh de trong file basePage ntn

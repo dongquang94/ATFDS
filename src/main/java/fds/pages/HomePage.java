@@ -2,6 +2,7 @@ package main.java.fds.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -31,6 +32,8 @@ public class HomePage extends BasePage {
     String logout = "//*[@id='portlet_FrontendWebPortal_LoginPortlet_INSTANCE_FrontendWebPortal_LoginPortlet_1']/div/div/div/div/div/div/ul/li[2]/a";
     //search
     String searchBox = "//*[@id='app']/div/div/div/div/div/div[1]/div[2]/div/div/div[1]/input";
+    //String searchBox = "//*[@id='keyInput']";
+    
     String dossierId = "";
     
     String top = "//*[@id='app']/div/div/div/div/div/div[2]/div[1]/table/tbody/tr/td[3]/a";
