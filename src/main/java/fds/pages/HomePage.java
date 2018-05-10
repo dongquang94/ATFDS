@@ -32,7 +32,6 @@ public class HomePage extends BasePage {
     String logout = "//*[@id='portlet_FrontendWebPortal_LoginPortlet_INSTANCE_FrontendWebPortal_LoginPortlet_1']/div/div/div/div/div/div/ul/li[2]/a";
     //search
     String searchBox = "//*[@id='app']/div/div/div/div/div/div[1]/div[2]/div/div/div[1]/input";
-    //String searchBox = "//*[@id='keyInput']";
     
     String dossierId = "";
     
@@ -86,6 +85,7 @@ public class HomePage extends BasePage {
     		Thread.sleep(2000);
     		click(By.xpath(submit));
     	} else if(label.equalsIgnoreCase("Tên công ty/tổ chức")){
+    		Thread.sleep(1000);
     		click(By.xpath(info));
     		Thread.sleep(1000);
     	} else if(label.equalsIgnoreCase(" Đăng xuất")){
