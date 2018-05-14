@@ -60,9 +60,15 @@ public class Create {
     }
     
     @When("^I fill in \"([^\"]*)\" with \"([^\"]*)\"$")
-    public void i_fill_data(String arg1, String id) throws Throwable{
-    	user = FileReaderManager.getInstance().getJsonReader().getUserById(id);
-    	homePage.fillData(arg1.replaceAll(" ", "").toUpperCase(), user.getFullName());
+    public void i_fill_data(String arg1, String arg2) throws Throwable{
+    	
+    	if(arg1.equalsIgnoreCase("Full name")){
+    		user = FileReaderManager.getInstance().getJsonReader().getUserById(arg2);
+        	homePage.fillData(arg1.replaceAll(" ", "").toUpperCase(), user.getFullName());
+    	} else {
+    		homePage.fillData(arg1.replaceAll(" ", "").toUpperCase(), arg2);
+    	}
+    	
     }
     
     @When("^I click file upload \"([^\"]*)\" file \"([^\"]*)\"$")
