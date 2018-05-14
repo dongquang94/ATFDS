@@ -8,6 +8,8 @@ public class User {
 	public int id;
 	public String username;
 	public String password;
+	public String fullname;
+	public String file_upload;
 	public Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
 	public int getId() {
@@ -32,6 +34,22 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String getFullName() {
+		return fullname;
+	}
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+	
+	public String getFileUpload() {
+		return file_upload;
+	}
+
+	public void setFileUpload(String file_upload) {
+		this.file_upload = file_upload;
 	}
 
 	public Map<String, Object> getAdditionalProperties() {

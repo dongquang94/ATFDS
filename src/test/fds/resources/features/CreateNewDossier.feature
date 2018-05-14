@@ -14,19 +14,19 @@ Feature: CreateNewDossier
     #Cấp giấy phép đưa thí sinh đi tham dự cuộc thi người đẹp, người mẫu quốc tế
     And I click on the "Cấp giấy phép đưa thí sinh đi tham dự cuộc thi người đẹp, người mẫu quốc tế" button
 		#fill data to form
-		And I fill in "Full Name" "Mrs Quang Dong"
+		And I fill in "Full Name" with "<id>"
 		And I click on the "Ghi lại" button
 		#Then I should see success message "Yêu cầu được thực hiện thành công!"
 		#file upload
-		And I click file upload "TP2"
+		And I click file upload "TP2" file "<id>"
 		#Then I should see success message "Yêu cầu được thực hiện thành công"
-		And I click file upload "TP3"
+		And I click file upload "TP3" file "<id>"
 		#Then I should see success message "Yêu cầu được thực hiện thành công"
-		And I click file upload "TP4"
+		And I click file upload "TP4" file "<id>"
 		#Then I should see success message "Yêu cầu được thực hiện thành công"
-		And I click file upload "TP5"
+		And I click file upload "TP5" file "<id>"
 		#Then I should see success message "Yêu cầu được thực hiện thành công"
-		And I click file upload "TP6"
+		And I click file upload "TP6" file "<id>"
 		#Then I should see success message "Yêu cầu được thực hiện thành công"
 		#submit
 		And I click on the "Lưu" button

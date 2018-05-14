@@ -5,6 +5,7 @@ import cucumber.api.java.en.When;
 import main.java.fds.cucumber.TestContext;
 import main.java.fds.pages.AdminPage;
 import main.java.fds.pages.HomePage;
+import main.java.fds.utils.Log;
 import main.java.utils.database.ConnectToDatabase;
 import main.java.fds.managers.FileReaderManager;
 import main.java.fds.bean.User;
@@ -14,6 +15,8 @@ public class Create {
 	TestContext testContext;
 	HomePage homePage;
 	AdminPage adminPage;
+	
+	User user;
 	
 	private String testDataSqlTag = "login";
 	
@@ -42,10 +45,8 @@ public class Create {
  
     @When("^I fill in username and password with \"([^\"]*)\"$")
     public void i_fill_in_username_and_password(String id) throws Throwable {
-    	User user = FileReaderManager.getInstance().getJsonReader().getUserById(id);
-		String currUsername = user.getUsername();
-		String currPasword = user.getPassword();
-        homePage.goToLoginPanel(currUsername, currPasword);
+    	user = FileReaderManager.getInstance().getJsonReader().getUserById(id);
+        homePage.goToLoginPanel(user.getUsername(), user.getPassword());
     }
  
     @When("^I click on the \"([^\"]*)\" button$")
@@ -58,14 +59,17 @@ public class Create {
     	}
     }
     
-    @When("^I fill in \"([^\"]*)\" \"([^\"]*)\"$")
-    public void i_fill_data(String arg1, String arg2) throws Throwable{
-    	homePage.fillData(arg1.replaceAll(" ", "").toUpperCase(), arg2);
+    @When("^I fill in \"([^\"]*)\" with \"([^\"]*)\"$")
+    public void i_fill_data(String arg1, String id) throws Throwable{
+    	user = FileReaderManager.getInstance().getJsonReader().getUserById(id);
+    	homePage.fillData(arg1.replaceAll(" ", "").toUpperCase(), user.getFullName());
     }
     
-    @When("^I click file upload \"([^\"]*)\"$")
-    public void i_click_file_upload(String arg1) throws Throwable{
-    	homePage.fileUpload(arg1);
+    @When("^I click file upload \"([^\"]*)\" file \"([^\"]*)\"$")
+    public void i_click_file_upload(String arg1, String id) throws Throwable{
+    	user = FileReaderManager.getInstance().getJsonReader().getUserById(id);
+    	homePage.fileUpload(arg1, user.getFileUpload());
+    	Log.info("--Filename from steps:"+user.getFileUpload());
     }
     
     @When("^I click on the \"([^\"]*)\" in confirm dialog$")

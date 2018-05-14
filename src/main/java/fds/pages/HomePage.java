@@ -1,10 +1,16 @@
 package main.java.fds.pages;
 
+import java.util.logging.Logger;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import main.java.fds.managers.FileReaderManager;
+import main.java.fds.utils.Log;
 
 public class HomePage extends BasePage {
 
@@ -142,7 +148,8 @@ public class HomePage extends BasePage {
     	}
     }
     
-    public void fileUpload(String fileIndex) throws Exception{
+    
+    public void fileUpload(String fileIndex, String filename) throws Exception{
     	Thread.sleep(500);
     	String elemenLocation = "//*[@id='file"+fileIndex+"']";
 //    	if(fileIndex.equalsIgnoreCase("File")){
@@ -151,7 +158,7 @@ public class HomePage extends BasePage {
 //    	} else {
 //    		elemenLocation = "//*[@id='file"+fileIndex+"']";
 //    	}
-    	fileUpload(By.xpath(elemenLocation));
+    	fileUpload(By.xpath(elemenLocation),filename);
     }
     
     public void confirmDialog(String label) throws Exception{

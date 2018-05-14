@@ -87,6 +87,14 @@ public class ConfigFileReader {
 			return Boolean.valueOf(windowSize);
 		return true;
 	}
+	
+	public String getTestDataLocation() {
+		String testDataLocation = properties.getProperty("testDataLocation");
+		if (testDataLocation != null)
+			return testDataLocation;
+		else
+			throw new RuntimeException("testDataLocation not specified in the Configuration.properties file.");
+	}
 
 	/*****************************************************************
 	 * Database configuration
