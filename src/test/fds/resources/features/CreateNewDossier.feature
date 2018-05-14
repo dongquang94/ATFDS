@@ -48,7 +48,7 @@ Feature: CreateNewDossier
 		And I click on the "Thụ lý hồ sơ" button
 		And I click on the "Hồ sơ hợp lệ" button
 		#dossier synchronous
-		And I fill in "Comment" "đồng ý"
+		And I fill in "Comment" with "đồng ý"
 		And I click on the "Form trực tuyến" button
 		And I click on the "Ghi lại 2" button
 		And I click on the "Xác nhận" button
