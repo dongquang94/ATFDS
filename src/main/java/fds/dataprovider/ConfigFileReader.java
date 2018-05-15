@@ -130,4 +130,24 @@ public class ConfigFileReader {
 		else
 			throw new RuntimeException("dbPassword not specified in the Configuration.properties file.");
 	}
+	
+	/*****************************************************************
+	 * TestLink configuration
+	 *****************************************************************/
+	
+	public String getTestLinkDevKey() {
+		String testLinkDevKey = properties.getProperty("TestLinkDEVKEY");
+		if (testLinkDevKey != null)
+			return testLinkDevKey;
+		else
+			throw new RuntimeException("testLinkDevKey not specified in the Configuration.properties file.");
+	}
+
+	public String getTestLinkURL() {
+		String testLinkURL = properties.getProperty("TestLinkURL");
+		if (testLinkURL != null)
+			return testLinkURL;
+		else
+			throw new RuntimeException("testLinkURL not specified in the Configuration.properties file.");
+	}
 }
