@@ -75,7 +75,6 @@ public class Create {
     public void i_click_file_upload(String arg1, String id) throws Throwable{
     	user = FileReaderManager.getInstance().getJsonReader().getUserById(id);
     	homePage.fileUpload(arg1, user.getFileUpload());
-    	Log.info("--Filename from steps:"+user.getFileUpload());
     }
     
     @When("^I click on the \"([^\"]*)\" in confirm dialog$")
